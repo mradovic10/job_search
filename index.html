@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <title>Misko's Job Search</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 </head>
 
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 jumbotron text-center">
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12 jumbotron text-center'>
                 <h1>Misko's Job Search</h1>
                 <p>Updated:</p>
-                <p id="date-container"></p>
+                <p id='dateContainer'></p>
                 <p>Eastern Time (UTC -5/-4)</p>
             </div>
         </div>
     </div>
+    <div class='row'>
+        <div class='col-md-6 text-center'>
+            <div class='well'>
+                <h5>Number of Applications Sent:</h5>
+                <p id='appCount'></p>
+            </div>
+        </div>
+        <div class='col-md-6 text-center'>
+            <div class='well'>
+                <h5>Number of Interviews:</h5>
+                <p id='intCount'></p>
+            </div>
+        </div>
+    </div>
 
-    <script src="./static/js/app.js"></script>
+    <script src='./static/js/data.js'></script>
+    <script src='./static/js/app.js'></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </body>
 
