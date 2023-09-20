@@ -7,6 +7,7 @@
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <title>Misko's Job Search</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
@@ -14,31 +15,40 @@
     <div class='container'>
         <div class='row'>
             <div class='col-md-12 jumbotron text-center'>
-                <h1>Misko's Job Search</h1>
-                <p>Updated:</p>
-                <p id='dateContainer'></p>
-                <p>Eastern Time (UTC -5/-4)</p>
+                <div class='text-info'>
+                    <h1>Misko's Job Search</h1>
+                    <p>Updated:</p>
+                    <p id='dateContainer'></p>
+                    <p>Eastern Time (UTC -5/-4)</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-6 text-center'>
-            <div class='well'>
-                <h5>Number of Applications Sent:</h5>
-                <p id='appCount'></p>
+        <div class='row'>
+            <div class='col-md-6 text-center'>
+                <div class='alert alert-info'>
+                    <h4>Number of Applications Sent:</h4>
+                    <h4 id='appCount'></h4>
+                </div>
+            </div>
+            <div class='col-md-6 text-center'>
+                <div class='alert alert-info'>
+                    <h4>Number of Interviews:</h4>
+                    <h4 id='intCount'></h4>
+                </div>
             </div>
         </div>
-        <div class='col-md-6 text-center'>
-            <div class='well'>
-                <h5>Number of Interviews:</h5>
-                <p id='intCount'></p>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div id="fieldBar"></div>
+            </div>
+            <div class='col-md-6'>
+                <div id="typeBar"></div>
             </div>
         </div>
     </div>
 
     <script src='./static/js/data.js'></script>
     <script src='./static/js/app.js'></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </body>
 
