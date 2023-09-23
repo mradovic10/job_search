@@ -1,0 +1,17 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Open Sans', verdana, arial, sans-serif;
+}
+
+#map {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 8px;
+  height: 400px;
+  width: 100%;
+}

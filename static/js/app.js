@@ -126,26 +126,24 @@ d3.json(url).then(function(data) {
     console.log('Unique Types:', uniqueTypes);
 
     // Find count of each type. Add the types and their counts to popularTypes and popTypeCounts lists, respectively.
-    popularTypes = [];
-    popTypeCounts = [];
+    allTypes = [];
+    allTypeCounts = [];
 
     uniqueTypes.forEach((type) => {
         const start = typesList.indexOf(type);
         const end = typesList.lastIndexOf(type);
         const count = end - start + 1;
-        if (count >= 10) {
-            popularTypes.push(type);
-            popTypeCounts.push(count);
-        };
+        allTypes.push(type);
+        allTypeCounts.push(count);
     });
 
-    console.log('Types:', popularTypes);
-    console.log('Counts:', popTypeCounts);
+    console.log('Types:', allTypes);
+    console.log('Counts:', allTypeCounts);
 
     // Trace for all types.
     let trace2 = {
-        x: popularTypes,
-        y: popTypeCounts,
+        x: allTypes,
+        y: allTypeCounts,
         type: "bar"
     };
 
@@ -164,18 +162,7 @@ d3.json(url).then(function(data) {
     Plotly.newPlot("typeBar", trace2Data, layout2);
 
     // MAP
-    var map = L.map('map', {
-        center: [29.9579005446342, 9.559838893763516],
-        zoom: [2]
-    });
-
-    // Add a tile layer.
-    var OpenStreetMap_Mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-
-    OpenStreetMap_Mapnik.addTo(map);
+    
 
     // Remove unknown locations from locationsList.
     let newLocationsList = locationsList.filter(removeUnknown);
@@ -191,5 +178,38 @@ d3.json(url).then(function(data) {
     const uniqueLocations = new Set(newLocationsList);
 
     console.log('Unique Locations:', uniqueLocations);
+
+    // Find count of each location. Add the types and their counts to popularTypes and popTypeCounts lists, respectively.
+    allLocations = [];
+    allLocCounts = [];
+
+    uniqueLocations.forEach((location) => {
+        const start = typesList.indexOf(location);
+        const end = typesList.lastIndexOf(location);
+        const count = end - start + 1;
+        allLocations.push(location);
+        allLocCounts.push(count);
+    });
+
+    console.log('Locations:', allLocations);
+    console.log('Counts:', allLocCounts);
+
+
+
+
+
+    var map = L.map('map').setView([37.8, -96], 4);
+
+    // Add a tile layer.
+    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    L.geoJson(statesData).addTo(map);
+
+
+
+
 
 });
