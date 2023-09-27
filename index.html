@@ -6,6 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <title>Miodrag "Misko" Radovic</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -14,10 +15,11 @@
     />
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 
-<body>
+<header>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,7 +39,143 @@
         </div>
     </nav>
 
-    <h1>Helloooooooooooooooooooooooooooo</h1>
+    <!-- Background image -->
+    <div
+        class="p-5 text-center bg-image"
+        style="
+        background-image: url('https://sat02pap005files.storage.live.com/y4mWJ_BYBdX_WMkxilr4pZoo7114F4439YPBPgu-GO_kXHb9XhPvJpEAZeJuOIFCmTUlTMvRTYGJKUf6QGyEe_gDP58P-iBm84oS0Wt5KCRnA4LLjCLT_USH6Xr4eHvLMmNQRGpFvlX2QUVuAV9cRSYctliO46YiVvQi1wbAPTvLS8h14-u90STKJlx8MH5aqvn?width=1024&height=437&cropmode=none');
+        width: 1024px;
+        height: 400px;
+        "
+    >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Miodrag "Misko" Radovic</h1>
+                    <h4 class="mb-3">Data Analyst | Python | SQL | Tableau</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<body>
+
+    <div class='container'>
+        <h2>Featured Projects</h2>
+        <div class='row'>
+            <!-- Paralysis of Choice -->
+            <div
+            class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            >
+                <div class="icon-box">
+                    <h4 class="title">
+                        <a href="https://stream-dash-app-00.herokuapp.com/" target="_blank">
+                            Paralysis of Choice in the Age of Streaming
+                        </a>
+                    </h4>
+                    <p class="description">
+                        Movie analysis dashboard for streaming service platforms.
+                    </p>
+                </div>
+            </div>
+            <!-- Airbnb ProfitPilot -->
+            <div
+            class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+            >
+                <div class="icon-box">
+                    <h4 class="title">
+                        <a href="http://projec4gtbootcampwebsite.s3-website-us-east-1.amazonaws.com/index.html" target="_blank">
+                        Airbnb ProfitPilot
+                        </a>
+                    </h4>
+                    <p class="description">
+                        Customizable revenue prediction tool for new listings.
+                    </p>
+                </div>
+            </div>
+            <!-- NYC Citi Bike Analysis -->
+            <div
+            class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            >
+                <div class="icon-box">
+                    <h4 class="title">
+                        <a href="https://public.tableau.com/views/2019_2022_bike_analysis/NYCCitiBikeAnalysis?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" target="_blank">
+                        NYC Citi Bike Analysis
+                        </a>
+                    </h4>
+                    <p class="description">
+                        Visualizing NYC bike share data pre- and post-COVID. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <!-- Belly Button Challenge -->
+            <div
+            class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            >
+                <div class="icon-box">
+                    <h4 class="title">
+                        <a href="https://mradovic10.github.io/belly-button-challenge/" target="_blank">
+                            Belly Button Challenge
+                        </a>
+                    </h4>
+                    <p class="description">
+                        Interactive dashboard exploring navel biodiversity. 
+                    </p>
+                </div>
+            </div>
+            <!-- Earthquakes Feed -->
+            <div
+            class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+            >
+                <div class="icon-box">
+                    <h4 class="title">
+                        <a href="https://mradovic10.github.io/leaflet-challenge/" target="_blank">
+                            USGS Earthquakes Feed
+                        </a>
+                    </h4>
+                    <p class="description">
+                        Interactive world map plotting all earthquakes of the past week, updated every 5 minutes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Social Media -->
+        <h2>Connect With Me</h2>
+        <div class='row'>
+            <!-- Linkedin -->
+            <div class='col-md-4 text-center'>
+                <a class="btn btn-primary" style="background-color: #0082ca;" href="https://www.linkedin.com/in/miodrag-misko-radovic/" target="_blank" role="button">
+                    <i class="fab fa-linkedin-in me-2"></i>LinkedIn
+                </a>
+            </div>
+            <!-- Github -->
+            <div class='col-md-4 text-center'>
+                <a class="btn btn-primary" style="background-color: #333333;" href="https://github.com/mradovic10" target="_blank" role="button">
+                    <i class="fab fa-github me-2"></i>GitHub
+                </a>
+            </div>
+            <!-- Email -->
+            <div class='col-md-4 text-center'>
+                <a class="btn btn-primary" style="background-color: #dd4b39;" href="mailto: radovic.miodrag10@gmail.com" role="button">
+                    <i class="fab fa-github me-2"></i>Email
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src='./static/js/app.js'></script>
 

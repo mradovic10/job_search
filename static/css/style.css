@@ -15,3 +15,44 @@ h2 {
   height: 400px;
   width: 100%;
 }
+
+.bg-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-white {
+  font-family: 'Open Sans', verdana, arial, sans-serif;
+}
+
+.title {
+  font-family: 'Open Sans', verdana, arial, sans-serif;
+}
+
+.description {
+  font-family: 'Open Sans', verdana, arial, sans-serif;
+}
+
+.icon-box {
+  padding: 50px 30px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.icon-box .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.icon-box .description {
+  font-size: 15px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
