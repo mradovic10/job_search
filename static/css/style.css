@@ -34,6 +34,10 @@ h2 {
   font-family: 'Open Sans', verdana, arial, sans-serif;
 }
 
+.btn:hover {
+  filter: grayscale(0%) brightness(1.5);
+}
+
 .icon-box {
   padding: 50px 30px;
   position: relative;
@@ -55,4 +59,12 @@ h2 {
   font-size: 15px;
   line-height: 28px;
   margin-bottom: 0;
+}
+
+.hover-overlay:hover {
+  background: linear-gradient(
+    45deg,
+    hsla(168, 85%, 52%, 0.5),
+    hsla(263, 88%, 45%, 0.5) 100%
+  )
 }
