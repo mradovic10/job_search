@@ -3,6 +3,12 @@ body {
   margin: 0;
 }
 
+.bg-image {
+  width: device-width;
+  height: 400px;
+  background:no-repeat center top;
+}
+
 h2 {
   text-align: center;
   font-family: 'Open Sans', verdana, arial, sans-serif;
