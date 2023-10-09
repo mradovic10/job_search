@@ -149,9 +149,9 @@ d3.json(url).then(function(data) {
     sum += responseTimes[i];
     };
 
-    // Show the average response time in days from companies that replied to application.
+    // Show the average response time in days (rounded to nearest whole number) from companies that replied to application.
     const avgRespTime = document.getElementById('avgRespTime');
-    avgRespTime.innerHTML = (sum / responseTimes.length).toFixed(1);
+    avgRespTime.innerHTML = (sum / responseTimes.length).toFixed(0);
 
     // MOST POPULAR FIELDS
 
@@ -263,8 +263,12 @@ d3.json(url).then(function(data) {
 
     console.log('Sizes Filtered:', newSizesList);
 
-    // Sort the sizes.
-    newSizesList.sort();
+    // Sort the sizes from smallest to biggest.
+    let sortOrder = ['1-10', '11-50', '51-200', '201-500', '501-1,000', '1,001-5,000', '5,001-10,000', '10,001+'];
+
+    newSizesList.sort(function(a, b) {
+        return sortOrder.indexOf(a) - sortOrder.indexOf(b);
+    });
 
     console.log('Sizes Sorted:', newSizesList);
 
@@ -406,7 +410,7 @@ d3.json(url).then(function(data) {
     
     L.geoJson(statesData, {style: style}).addTo(map);
     
-    // 
+    // Create highlight feature when hovering over states.
     function highlightFeature(e) {
         var layer = e.target;
     
@@ -422,22 +426,19 @@ d3.json(url).then(function(data) {
     };
     
     var geojson;
-    // ... our listeners
     geojson = L.geoJson();
     
-    // #2
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
     
         info.update();
     };
     
-    // #3
+    // Create click feature that zooms into the state.
     function zoomToFeature(e) {
         map.fitBounds(e.target.getBounds());
     };
     
-    // #4
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover: highlightFeature,
@@ -451,24 +452,7 @@ d3.json(url).then(function(data) {
         onEachFeature: onEachFeature
     }).addTo(map);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // Create custom control that will be shown on state hover in the top right corner.
     var info = L.control();
     
     info.onAdd = function (map) {
@@ -477,7 +461,7 @@ d3.json(url).then(function(data) {
         return this._div;
     };
     
-    // method that we will use to update the control based on feature properties passed
+    // Method that we will use to update the control based on feature properties passed.
     info.update = function (props) {
         
         this._div.innerHTML = (props ?
@@ -488,12 +472,7 @@ d3.json(url).then(function(data) {
     
     info.addTo(map);
     
-    
-    
-    
-    
-    
-    // LEGEND
+    // Create a legend in the bottom right corner.
     var legend = L.control({position: 'bottomright'});
     
     legend.onAdd = function() {
@@ -501,7 +480,7 @@ d3.json(url).then(function(data) {
         let div = L.DomUtil.create('div', 'info legend');
         let grades = [0, 1, 3, 5, 10, 20, 30];
     
-        // loop through our density intervals and generate a label with a colored square for each interval
+        // Loop through our count intervals and generate a label with a colored square for each interval.
         for (let i = 0; i < grades.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + getColor(grades[i] + 0.9) + '"></i> ' +
@@ -513,11 +492,6 @@ d3.json(url).then(function(data) {
     };
     
     legend.addTo(map);
-    // LEGEND
-
-
-
-
 
 
 
