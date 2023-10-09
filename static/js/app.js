@@ -7,6 +7,7 @@ var url = 'https://api.jsonbin.io/v3/b/650dd2bf54105e766fb842dd/latest';
 //});
 
 // UPDATE TIME
+
 // Function to get the current date and time.
 function getCurrentDateAndTime() {
     const dateTime = new Date();
@@ -24,7 +25,7 @@ d3.json(url).then(function(data) {
 
     // Create variables to represent the 'applications' array and 'interviews' array.
     let apps = data.record.applications;
-    let ints = data.record.interviews;
+    let replies = data.record.replies;
 
     // EXTRACTING NECESSARY DATABASE INFO
     // Loop through 'applications' and add each row's field, type, and location to their respective lists.
@@ -124,26 +125,55 @@ d3.json(url).then(function(data) {
 
 
     // APPLICATIONS COUNT
+
     // Show the number of applications sent.
     const appCount = document.getElementById('appCount');
     appCount.innerHTML = apps.length;
 
     console.log('Number of Applications:', apps.length)
 
-    // INTERVIEWS COUNT
-    // Show the number of interviews that occured.
-    const intCount = document.getElementById('intCount');
-    intCount.innerHTML = ints.length;
+    // // INTERVIEWS COUNT
 
-    console.log('Number of Interviews:', ints.length)
+    // // Show the number of interviews that occured.
+    // const intCount = document.getElementById('intCount');
+    // intCount.innerHTML = ints.length;
 
+    // console.log('Number of Interviews:', ints.length)
 
+    // RESPONSE TIME
+
+    // Join the 'replies' array with the 'applications' array on id.
+    const mergedArray = replies.map((item) => {
+        const matchedObject = apps.find((obj) => obj.id === item.id);
+        return {...item, ...matchedObject};
+    });
+
+    console.log(mergedArray);
+
+    // Loop through the merged array and figure out the difference in days from when the company responded to when the application was sent.
+    responseTimes = [];
+
+    for (let i = 0; i < mergedArray.length; i++) {
+        let diff = Math.abs(new Date(mergedArray[i]['reply_date']) - new Date(mergedArray[i]['date']));
+        // Convert the absolute difference between dates into days.
+        let diffDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        responseTimes.push(diffDays)
+    };
+
+    console.log('Response Times (Days):', responseTimes);
+
+    // Loop through response times in order to figure out the sum of all the days. This will be used to figure out the average.
+    let sum = 0;
+
+    for (let i = 0; i < responseTimes.length; i++ ) {
+    sum += responseTimes[i];
+    };
+
+    // Show the average response time in days from companies that replied to application.
+    const avgRespTime = document.getElementById('avgRespTime');
+    avgRespTime.innerHTML = (sum / responseTimes.length).toFixed(1);
 
     // MOST POPULAR FIELDS
-    // // Create function to remove unknown data (data = '?') from a list.
-    // function removeUnknown(x) {
-    //     return x != '?';
-    // };
 
     // Remove unknown fields from fieldsList.
     let newFieldsList = fieldsList.filter(removeUnknown);
@@ -199,6 +229,7 @@ d3.json(url).then(function(data) {
     Plotly.newPlot("fieldBar", trace1Data, layout1);
 
     // JOB TYPES
+
     // Sort the types alphabetically.
     typesList.sort();
 
