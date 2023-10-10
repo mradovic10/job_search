@@ -305,6 +305,9 @@ d3.json(url).then(function(data) {
     // Apply title and y-axis title to the layout.
     let layout3 = {
         title: 'Size of Companies',
+        xaxis: {
+            title: 'Employees'
+        },
         yaxis: {
             title: 'Number of Applications'
         }
@@ -492,44 +495,5 @@ d3.json(url).then(function(data) {
     };
     
     legend.addTo(map);
-
-
-
-
-    // // Remove unknown locations from locationsList.
-    // let newLocationsList = locationsList.filter(removeUnknown);
-
-    // console.log('Locations Filtered:', newLocationsList);
-
-    // // Sort the locations alphabetically.
-    // newLocationsList.sort();
-
-    // console.log('Locations Sorted:', newLocationsList);
-
-    // // Find all unique locations.
-    // const uniqueLocations = new Set(newLocationsList);
-
-    // console.log('Unique Locations:', uniqueLocations);
-
-    // // Find count of each location. Add the types and their counts to popularTypes and popTypeCounts lists, respectively.
-    // let allLocations = [];
-    // let allLocCounts = [];
-
-    // uniqueLocations.forEach((location) => {
-    //     const start = newLocationsList.indexOf(location);
-    //     const end = newLocationsList.lastIndexOf(location);
-    //     const count = end - start + 1;
-    //     allLocations.push(location);
-    //     allLocCounts.push(count);
-    // });
-
-    // console.log('Locations:', allLocations);
-    // console.log('Counts:', allLocCounts);
-
-
-
-
-
-
 
 });
