@@ -237,24 +237,21 @@ d3.json(url).then(function(data) {
 
     // Trace for all types.
     let trace2 = {
-        x: allTypes,
-        y: allTypeCounts,
-        type: "bar"
+        values: allTypeCounts,
+        labels: allTypes,
+        type: "pie"
     };
 
     // Data trace array.
     let trace2Data = [trace2];
 
-    // Apply title and y-axis title to the layout.
+    // Apply title to the layout.
     let layout2 = {
-        title: 'Job Types',
-        yaxis: {
-            title: 'Number of Applications'
-        }
+        title: 'Job Types'
     };
 
-    // Render the plot to the div tag with id "typeBar".
-    Plotly.newPlot("typeBar", trace2Data, layout2);
+    // Render the plot to the div tag with id "typePie".
+    Plotly.newPlot("typePie", trace2Data, layout2);
 
     // COMPANY SIZE
 
